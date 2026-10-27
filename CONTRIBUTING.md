@@ -7,3 +7,5 @@
 배포 변경은 로컬·NAS 프록시·Caddy의 설정을 확인하고 백업·복원을 함께 검증하세요. 소스 묶음은 `python scripts/package_release.py`로 만들 수 있습니다. 실제 서버 설치를 하지 않았다면 설치 완료라고 표현하지 마세요.
 
 브라우저 테스트는 `docs/`의 화면 이미지를 합성 테스트 메모로 다시 생성합니다. 개인 메모가 담긴 화면으로 교체하지 마세요.
+
+README의 별도 `docs/demo-*.png`는 `python scripts/capture_demo.py`로 다시 만들 수 있습니다. 이 명령도 임시 DB와 합성 메모만 사용합니다. Playwright Chromium 대신 설치된 브라우저를 쓰려면 `HANJUL_TEST_CHROME`에 실행 파일 경로를 지정하세요.

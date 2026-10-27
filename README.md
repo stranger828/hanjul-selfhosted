@@ -1,12 +1,14 @@
 # 한줄 · HanJul
 
+[![Verify HanJul](https://github.com/stranger828/hanjul-selfhosted/actions/workflows/verify.yml/badge.svg)](https://github.com/stranger828/hanjul-selfhosted/actions/workflows/verify.yml)
+
 **분류보다 기록을 먼저. 기억나는 단어로 다시 찾는 개인 메모 웹앱.**
 
 떠오른 생각, 업무 중 기억할 내용, 링크와 스크린샷을 제목 없이 바로 적습니다. 메모와 첨부파일은 내가 선택한 NAS·AWS·로컬 서버에 보관하고, 컴퓨터와 휴대폰에서 같은 서버에 접속해 사용합니다.
 
 [만든 목적과 장점](docs/WHY-HANJUL.md) · [설치 경로](docs/SELF-HOSTING.md) · [전체 기능](docs/FEATURES.md) · [백업·복구](docs/BACKUP.md)
 
-![한줄 데스크톱 화면 — 합성 테스트 메모](docs/desktop.png)
+![한줄 데스크톱 화면 — 공개 소개용 예시 메모](docs/demo-desktop.png)
 
 ## 왜 한줄인가요?
 
@@ -50,7 +52,7 @@ docker compose exec memo cat /data/initial-password.txt
 4. 필요할 때만 중요 표시·태그·폴더를 붙입니다.
 5. 휴대폰에서 같은 HTTPS 주소를 열고, 브라우저의 홈 화면 추가 기능으로 사용합니다.
 
-![휴대폰 화면 — 합성 테스트 메모](docs/mobile.png)
+![휴대폰 화면 — 공개 소개용 예시 메모](docs/demo-mobile.png)
 
 ## 데이터와 로그인
 
@@ -75,4 +77,4 @@ HANJUL_TEST_CHROME="$(.venv/bin/python -c 'from playwright.sync_api import sync_
 
 완전한 오프라인 동기화, 실시간 공동 편집, 다중 사용자, 변경 이력, 의미 검색은 지원하지 않습니다. 서버 연결이 있어야 저장·검색할 수 있습니다. 브라우저 로컬 초안은 서버 백업을 대신하지 않습니다. 단일 서버의 로컬 디스크를 기준으로 하며 SQLite DB를 네트워크 공유 드라이브에 두지 않습니다.
 
-MIT License. 이 공개본은 개인 운영 환경과 분리한 새 저장소이며 실제 메모·인증정보·개인 배포 이력을 포함하지 않습니다.
+[MIT License](LICENSE). 이 공개본은 개인 운영 환경과 분리한 새 저장소이며 실제 메모·인증정보·개인 배포 이력을 포함하지 않습니다.

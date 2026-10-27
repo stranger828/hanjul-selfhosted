@@ -17,6 +17,24 @@ HANJUL_TEST_CHROME="$(.venv/bin/python -c 'from playwright.sync_api import sync_
 
 Docker Engine이 없는 로컬 환경에서는 컨테이너 실행을 확인하지 않았습니다. Linux의 실제 Docker 빌드·Compose·HTTPS·복원 결과는 아래 GitHub Actions 기록으로 확인합니다.
 
+## 2026-10-27 공개본 검증 결과
+
+[GitHub Actions 성공 실행](https://github.com/stranger828/hanjul-selfhosted/actions/runs/40425855471)에서 Ubuntu 24.04 / Python 3.14 환경의 전체 API·브라우저 테스트와 실제 Docker 통합 검증이 모두 통과했습니다.
+
+| 항목 | 결과 |
+| --- | --- |
+| 전체 API·브라우저 테스트 | 통과 |
+| 로컬·NAS·HTTPS·복원 Compose 설정 | 통과 |
+| Docker 이미지 빌드·실행 | 통과 |
+| 미인증 메모 차단·로그인·메모 생성 | 통과 |
+| 재시작 후 메모 유지 | 통과 |
+| 온라인 백업·임시 복원 검증 | 통과 |
+| 새 데이터 볼륨 복원·세션 정리 | 통과 |
+| Caddy 설정·로컬 HTTPS 접속 | 통과 |
+| 소스 전용 배포 묶음 | 통과 |
+
+README의 PC·휴대폰 소개 화면은 `scripts/capture_demo.py`로 별도 임시 DB의 예시 메모를 촬영하고 시각 확인했습니다. 개인 메모를 사용하지 않습니다.
+
 ## 배포 구성 검증
 
 [GitHub Actions](https://github.com/stranger828/hanjul-selfhosted/actions)는 전체 테스트 외에 다음을 수행합니다.
