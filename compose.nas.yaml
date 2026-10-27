@@ -1,0 +1,6 @@
+# A NAS or existing host reverse proxy provides HTTPS.
+services:
+  memo:
+    environment:
+      MEMO_PUBLIC_ORIGIN: "${MEMO_PUBLIC_ORIGIN:?Set MEMO_PUBLIC_ORIGIN to your HTTPS URL}"
+      MEMO_SECURE_COOKIE: "1"

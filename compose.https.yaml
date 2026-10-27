@@ -1,0 +1,32 @@
+# Merge with compose.yaml, from the repository root.
+services:
+  memo:
+    environment:
+      MEMO_PUBLIC_ORIGIN: "https://${HANJUL_DOMAIN:?Set HANJUL_DOMAIN in .env to your domain}"
+      MEMO_SECURE_COOKIE: "1"
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    depends_on:
+      memo:
+        condition: service_healthy
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      HANJUL_DOMAIN: "${HANJUL_DOMAIN:?Set HANJUL_DOMAIN in .env to your domain}"
+    volumes:
+      - ./deploy/server/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  caddy_data:
+  caddy_config:

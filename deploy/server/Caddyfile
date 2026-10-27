@@ -1,0 +1,3 @@
+{$HANJUL_DOMAIN} {
+    reverse_proxy memo:8787
+}

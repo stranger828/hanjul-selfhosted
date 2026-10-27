@@ -1,0 +1,22 @@
+.venv/
+.data*/
+.env
+__pycache__/
+.pytest_cache/
+*.sqlite*
+backups/
+.sites-runtime/
+releases/
+data/
+migration-data/
+
+# Separate trial project and local verification / credentials
+passkey-lab/
+verification/
+.registry-auth/
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+compose.nas.generated.yaml

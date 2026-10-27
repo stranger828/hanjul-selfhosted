@@ -1,0 +1,9 @@
+# Restore to a NEW volume. Merge after the normal Compose files.
+# Keep this override in every subsequent command after switching to restored data.
+services:
+  memo:
+    volumes:
+      - restored_data:/data
+
+volumes:
+  restored_data:

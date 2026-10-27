@@ -1,0 +1,10 @@
+**
+!Dockerfile
+!requirements.lock.txt
+!app.py
+!auth.py
+!schema.sql
+!static/
+!static/**
+!scripts/
+!scripts/*.py

@@ -1,0 +1,38 @@
+services:
+  memo:
+    build: .
+    image: hanjul-selfhosted:local
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      MEMO_HOST: "0.0.0.0"
+      PORT: "8787"
+      MEMO_DATA_DIR: /data
+      MEMO_PUBLIC_ORIGIN: "${MEMO_PUBLIC_ORIGIN:-http://localhost:8787}"
+    volumes:
+      - memo_data:/data
+      - memo_backups:/backups
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=512m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8787/healthz', timeout=5).read()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  memo_data:
+  memo_backups:
